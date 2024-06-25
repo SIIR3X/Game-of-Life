@@ -23,7 +23,7 @@ _TEST_SRC = test.c test_cells.c test_grid.c
 TEST_OBJ = $(patsubst %,$(ODIR)/%,$(_TEST_SRC:.c=.o))
 
 # Phony targets
-.PHONY: all run memorycheck test testmemorycheck expe clean delete deletetest deleteresult deletedoc cleanall doc
+.PHONY: all run memorycheck test testmemorycheck expe clean delete deletetest deleteexpe deleteresult deletedoc cleanall doc
 
 # Default target
 all : $(PROG) $(TEST) $(EXPE)
@@ -52,13 +52,16 @@ delete :
 deletetest :
 	rm -f $(TEST)
 
+deleteexpe :
+	rm -f $(EXPE)
+
 deleteresult :
 	rm -f $(EDIR)/expe_result.txt
 
 deletedoc :
 	rm -rf $(DDIR)/*
 
-cleanall: clean delete deletetest deleteresult deletedoc
+cleanall: clean delete deletetest deleteexpe deleteresult deletedoc
 
 doc :
 	doxygen Doxyfile
