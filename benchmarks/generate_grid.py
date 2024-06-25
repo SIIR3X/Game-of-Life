@@ -38,7 +38,13 @@ def save_grid_to_file(grid, filename):
     grid (list): 2D list representing the grid.
     filename (str): Name of the file to save the grid.
     """
+    rows = len(grid)
+    cols = len(grid[0]) if rows > 0 else 0
+
     with open(filename, 'w') as file:
+        # Write the number of rows and columns as the first line
+        file.write(f"{rows} {cols}\n")
+
         for row in grid:
             file.write(''.join(row) + '\n')
 
