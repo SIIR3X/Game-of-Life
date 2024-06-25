@@ -42,9 +42,7 @@ Grid* load_grid(const char* filename);
 
 /**
  * @brief Displays the generation counter.
- *
- * This function prints the current generation number at the top of the console.
- *
+ * 
  * @param generation The current generation number.
  */
 void print_generation_counter(int generation);

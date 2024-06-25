@@ -27,9 +27,9 @@ int main(int argc, char *argv[]) {
     Grid* grid = create_grid(rows, cols);
     initialize_grid(grid, num_alive_cells);
 
-    for (int gen = 0; gen < num_generations; gen++) {
+    for (int gen = 1; gen <= num_generations; gen++) {
         clear_screen();
-        print_generation_counter(gen+1);
+        print_generation_counter(gen);
         print_grid(grid);
         update_grid(grid);
         usleep(200000);
